@@ -1,12 +1,13 @@
 
 var express = require('express');
+var time = require('time');
 var data = require('./data/temperatures');
 
 var app = express.createServer(express.logger());
 
 app.get('/temp', function(request, response) {
-  var from = new Date(request.query.from + " (CET)");
-  var to = new Date(request.query.to + " (CET)");
+  var from = new time.Date(request.query.from + " 00:00:00", "CET");
+  var to = new time.Date(request.query.to + " 00:00:00", "CET");
   response.send(getTemps(from, to));
 });
 
