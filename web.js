@@ -5,6 +5,8 @@ var data = require('./data/temperatures');
 
 var app = express.createServer(express.logger());
 
+app.use(express.static('public'));
+
 app.get('/temp', function(request, response) {
   var from = new time.Date(request.query.from + " 00:00:00", "CET");
   var to = new time.Date(request.query.to + " 00:00:00", "CET");

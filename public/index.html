@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Temperatures from Malmö</title>
+</head>
+
+<body>
+<h1>Malmö Temperature Server</h1>
+	<p>
+	This server provides temperature data from Malmö from 1990-01-01 to 2011-12-31. 
+	The temperature is measured every third hour.
+	</p>
+	<p>
+	To access data from specific dates, you query the database like this:
+	<p>
+	<pre>
+		http://malmo-temp.herokuapp.com/temp?from=&lt;fromdate&gt;&to=&lt;todate&gt;
+	</pre>
+	<p>
+	Dates should be on the form yyyy-mm-dd
+	<p>
+	The result is a json array containing temperature entries on the form:
+	<pre>
+		{
+			timestamp: 1288663200000,
+			temperature: 6.1
+		}
+	</pre>
+	<p>
+	Try it out now:
+	</p>
+	<form action="/temp" method="get">
+	<label for="from">From:</label>
+	<input type="text" name="from" id="from" value="2010-06-01"/>
+	<label for="to">To:</label>
+	<input type="text" name="to" id="to" value="2010-06-10" />
+	<input type="submit" value="Get Temperatures" />
+	</form>
+</body>
+
+</html>
