@@ -22,7 +22,6 @@ function getTemps(from, to) {
   var result = new Array();
   var fromStamp = from.getTime();
   var toStamp = to.getTime();
-  console.log("From " + from + " : " + fromStamp);
   for(var i = 0; i < data.length; i++) {
     var entry = data[i];
     if (entry.timestamp >= toStamp) break;
